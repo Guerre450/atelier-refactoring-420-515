@@ -25,14 +25,13 @@ jobs:
               cache: maven
           - name: Donner accès en exécution au wrapper
             run: chmod +x mvnw
-          - name: Compilation du projet Maven
-            run: ./mvnw -B compile
+          - name: Compile et roule les tests
+            run: ./mvnw -B clean verify
 
 # TODO 1 : une fois vos tests de caractérisation écrits (README, Partie 2) et vos
 #          refactorings terminés (README, Partie 3), modifiez la dernière étape
 #          ci-dessus pour exécuter toute la suite de tests plutôt que la seule
 #          compilation (./mvnw -B clean verify).
-
 # TODO 2 (bonus) : ajoutez le plugin JaCoCo à votre pom.xml (voir les notes de cours
 #          de la semaine 5 — Tests automatisés) et ajoutez une étape qui génère le
 #          rapport de couverture (target/site/jacoco/index.html).

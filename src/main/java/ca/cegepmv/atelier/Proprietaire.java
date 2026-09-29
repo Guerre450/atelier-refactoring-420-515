@@ -3,16 +3,12 @@ package ca.cegepmv.atelier;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Propriétaire d'un ou plusieurs animaux, cliente ou client de la clinique.
- */
+;
 public class Proprietaire {
 
     private final String prenom;
     private final String nom;
-    private final String rue;
-    private final String ville;
-    private final String codePostal;
+    private final Address address;
     private final String email;
     private final String telephone;
     private final double solde;
@@ -23,10 +19,17 @@ public class Proprietaire {
                          String email, String telephone, double solde, int anneesClient) {
         this.prenom = prenom;
         this.nom = nom;
-        this.rue = rue;
-        this.ville = ville;
-        this.codePostal = codePostal;
         this.email = email;
+        this.address = new Address(rue,ville,codePostal);
+        this.telephone = telephone;
+        this.solde = solde;
+        this.anneesClient = anneesClient;
+    }
+    public Proprietaire(String prenom, String nom,Address address, String email, String telephone, double solde, int anneesClient){
+        this.prenom = prenom;
+        this.nom = nom;
+        this.email = email;
+        this.address = address;
         this.telephone = telephone;
         this.solde = solde;
         this.anneesClient = anneesClient;
@@ -45,15 +48,15 @@ public class Proprietaire {
     }
 
     public String getRue() {
-        return rue;
+        return address.rue();
     }
 
     public String getVille() {
-        return ville;
+        return address.ville();
     }
 
     public String getCodePostal() {
-        return codePostal;
+        return address.codePostal();
     }
 
     public String getEmail() {
@@ -74,5 +77,12 @@ public class Proprietaire {
 
     public List<Animal> getAnimaux() {
         return animaux;
+    }
+    public String resumeContact(){
+        return "Client: " + this.getPrenom() + " " + this.getNom() + "\n" +
+                "Adresse: " + this.getRue() + ", " + this.getVille() +
+                " " + this.getCodePostal() + "\n" +
+                "Contact: " + this.getEmail() + " / " + this.getTelephone() +
+                "\n";
     }
 }
