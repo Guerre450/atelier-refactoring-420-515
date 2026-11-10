@@ -23,6 +23,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- JUnit 6 (nom de projet toujours "Jupiter" pour l'API @Test/@ParameterizedTest/...) -->
         <junit.version>6.0.3</junit.version>
+        <!-- SonarQube configuration -->
+        <sonar.organization>guerre450</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
