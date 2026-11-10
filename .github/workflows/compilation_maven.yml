@@ -27,7 +27,8 @@ jobs:
             java-version: '25'
             distribution: 'temurin'
             cache: maven
-
+        - name: Donner accès en exécution au wrapper
+          run: chmod +x mvnw
         - name: Build, tests et analyse SonarCloud
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
