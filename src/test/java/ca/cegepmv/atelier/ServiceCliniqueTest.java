@@ -221,8 +221,8 @@ void calculerRemiseFidelite_1Animal5AnneClient_Retourne_005(){
     @Test
     void planifierVisite_RappelEmail_VerifieJournal(){
         service.planifierVisite(1, LocalDate.now(),"VACCIN",false,"joe", "this is bad", true);
-        assertEquals(List.of("Rappel envoyé pour la visite du 2026-09-29 (animal #1)"),service.getJournalRappels());
+        assertEquals(List.of(String.format("Rappel envoyé pour la visite du %s (animal #1)",LocalDate.now() )),service.getJournalRappels());
         service.planifierVisite(2, LocalDate.now(),"VACCIN",false,"joe", "this is bad", false);
-        assertEquals(List.of("Rappel envoyé pour la visite du 2026-09-29 (animal #1)"),service.getJournalRappels());
+        assertEquals(List.of(String.format("Rappel envoyé pour la visite du %s (animal #1)", LocalDate.now())),service.getJournalRappels());
     }
 }
